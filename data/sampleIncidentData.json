@@ -1,0 +1,29 @@
+[
+  {
+    "incident_id": "TPD1001",
+    "officer_id": "OF203",
+    "department": "Narcotics",
+    "date": "2025-09-01",
+    "location": "Downtown",
+    "status": "Open",
+    "report": "Suspicious activity reported near 4th Ave and 7th St."
+  },
+  {
+    "incident_id": "TPD1002",
+    "officer_id": "OF204",
+    "department": "",
+    "date": "2025-13-01",
+    "location": "Midtown",
+    "status": "Closed",
+    "report": null
+  },
+  {
+    "incident_id": "TPD1003",
+    "officer_id": "OF205",
+    "department": "Cybercrime",
+    "date": "2025-08-30",
+    "location": "Eastside",
+    "status": "Investigating",
+    "report": "Online fraud reported. IP traced to a foreign server."
+  }
+]
