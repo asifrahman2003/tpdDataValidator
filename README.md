@@ -4,6 +4,8 @@
 > Internship Target: **Data Engineer Intern – Tucson Police Department (TPD)**  
 > Status: Completed (Mock Data, SQLite Backend, Report Generation)
 
+## View the project demo live at: [https://tpddatavalidator.streamlit.app/](https://tpddatavalidator.streamlit.app/)
+
 ## Project Overview
 
 This project simulates a real-world **data engineering pipeline** tailored for a public safety context like the Tucson Police Department. It demonstrates how incoming incident report data can be:
