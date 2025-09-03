@@ -95,8 +95,8 @@ Incidents by status:
 ### 1. Clone this repo
 
 ```
-git clone https://github.com/your-username/tpd-data-validator.git
-cd tpd-data-validator
+git clone https://github.com/asifrahman2003/tpdDataValidator.git
+cd tpdDataValidator
 ```
 ### 2. Create and activate virtual environment
 ```
