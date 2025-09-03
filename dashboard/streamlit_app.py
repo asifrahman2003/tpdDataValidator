@@ -61,6 +61,13 @@ fig_status = px.pie(
 )
 st.plotly_chart(fig_status)
 
+st.download_button(
+    label="Download Status Report CSV",
+    data=status_counts.to_csv(index=False),
+    file_name="status_report.csv",
+    mime="text/csv"
+)
+
 # incidents by department
 st.subheader("Incidents by Department")
 dept_counts = filtered_df["department"].value_counts().reset_index()
@@ -70,12 +77,27 @@ fig_dept = px.pie(
     names="department",
     values="count",
     title="Incidents by Department",
-    hole=0.4,  # makes it a donut chart
+    hole=0.4,
     color_discrete_sequence=px.colors.qualitative.Pastel
 )
 st.plotly_chart(fig_dept)
 
+st.download_button(
+    label="Download Department Report CSV",
+    data=dept_counts.to_csv(index=False),
+    file_name="department_report.csv",
+    mime="text/csv"
+)
+
 # recent incidents
 st.subheader("Most Recent Incidents")
 recent = filtered_df.sort_values(by="date", ascending=False).head(5)
-st.table(recent[["incident_id", "date", "department", "status"]])
+recent_table = recent[["incident_id", "date", "department", "status"]]
+st.table(recent_table)
+
+st.download_button(
+    label="Download Recent Incidents CSV",
+    data=recent_table.to_csv(index=False),
+    file_name="recent_incidents.csv",
+    mime="text/csv"
+)
