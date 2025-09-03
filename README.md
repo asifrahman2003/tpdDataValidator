@@ -31,18 +31,18 @@ This modular pipeline follows a simplified **ETL (Extract–Transform–Load)** 
 ```
 tpd-data-validator/
 ├── data/
-│ └── sampleIncidentData.json # Simulated API response
+│ └── sampleIncidentData.json   # Simulated API response
 ├── src/
-│ ├── fetch_api.py # Ingest data (mimic API call)
-│ ├── validate_data.py # Data cleaning + validation logic
-│ ├── db_schema.sql # SQL schema (DROP + CREATE TABLE)
-│ ├── load_to_db.py # Load validated data into DB
-│ ├── generate_report.py # Analytics reporting (SQL queries)
-│ └── test_db.py # Standalone SQLite schema test
-├── tpd_incidents.db # Generated SQLite database (after running)
-├── requirements.txt # Python dependencies (minimal)
-├── .gitignore # Ignores venv/ and .db files
-└── README.md # 📄 You’re here!
+│ ├── fetch_api.py              # Ingest data (mimic API call)
+│ ├── validate_data.py          # Data cleaning + validation logic
+│ ├── db_schema.sql             # SQL schema (DROP + CREATE TABLE)
+│ ├── load_to_db.py             # Load validated data into DB
+│ ├── generate_report.py        # Analytics reporting (SQL queries)
+│ └── test_db.py                # Standalone SQLite schema test
+├── tpd_incidents.db            # Generated SQLite database (after running)
+├── requirements.txt            # Python dependencies (minimal)
+├── .gitignore                  # Ignores venv/ and .db files
+└── README.md                   # You’re here!
 ```
 
 ## Features
@@ -97,11 +97,16 @@ Incidents by status:
 ```
 git clone https://github.com/your-username/tpd-data-validator.git
 cd tpd-data-validator
-2. Create and activate virtual environment
+```
+### 2. Create and activate virtual environment
+```
 python3 -m venv venv
-source venv/bin/activate    # On Windows: venv\Scripts\activate
+source venv/bin/activate         # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
-3. Run the pipeline
+```
+
+### 3. Run the pipeline
+```
 python src/load_to_db.py         # Creates DB and loads validated data
 python src/generate_report.py    # Generates analytics from DB
 ```
@@ -129,4 +134,4 @@ Feel free to reach out or explore more projects at:
 ```
 
 ## License
-> This project is licensed under MIT Open Licensing. 
+> This project is licensed under MIT Open Licensing. ⓒ 2025 Asifur Rahman. 
