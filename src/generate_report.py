@@ -11,6 +11,8 @@
 # required libraries
 import sqlite3
 import os
+import pandas as pd
+from datetime import datetime
 
 # defining the path to existing SQLite DB file
 db_path = os.path.join(os.path.dirname(__file__), "../tpd_incidents.db")
@@ -66,6 +68,30 @@ LIMIT 3;
 """
 for row in cursor.execute(query3):
     print(f" - [{row[1]}] {row[0]} ({row[2]}) -> {row[3]}")
+
+# new functionality; exporting reports to CSV
+print("\n Exporting reports to CSV")
+
+# ensure the reports folder exists
+report_dir = os.path.join(os.path.dirname(__file__), "../reports")
+os.makedirs(report_dir, exist_ok=True)
+
+# query 1: Status report
+cursor.execute(query1)
+status_df = pd.DataFrame(cursor.fetchall(), columns=["status", "count"])
+status_df.to_csv(os.path.join(report_dir, "incidents_by_status.csv"), index=False)
+
+# query 2: Department report
+cursor.execute(query2)
+dept_df = pd.DataFrame(cursor.fetchall(), columns=["department", "count"])
+dept_df.to_csv(os.path.join(report_dir, "incidents_by_department.csv"), index=False)
+
+# query 3: Recent incidents report
+cursor.execute(query3)
+recent_df = pd.DataFrame(cursor.fetchall(), columns=["incidents_id", "date", "department", "status"])
+recent_df.to_csv(os.path.join(report_dir, "recent_incidents.csv"), index=False)
+
+print("Reports save in /reports folder.")
 
 # close the connection to save resources
 connection.close()
